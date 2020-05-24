@@ -48,8 +48,7 @@ def albums(artist):
         album_names = [album.album for album in albums_list]
         result = "Колчество альбомов {}: {}, список: {}".format(artist, len(album_names), ", ".join(album_names))
     else:
-        message = "Альбомов {} не найдено".format(artist)
-        result = HTTPError(404, message)
+        result = "Альбомов {} не найдено".format(artist)
     return result
 
 @route("/albums", method="POST")
