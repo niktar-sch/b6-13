@@ -52,7 +52,7 @@ def albums(artist):
         result = HTTPError(404, message)
     return result
 
-@route("/albums/", method="POST")
+@route("/albums", method="POST")
 def album_add():
     """
     Добавляет альбом в базу данных
