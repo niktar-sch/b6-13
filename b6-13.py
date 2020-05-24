@@ -57,6 +57,11 @@ def album_add():
     """
     Добавляет альбом в базу данных
     """
+    #Проверка наличия всех полей
+    not_found_fields = {"year", "artist", "genre", "album"} - request.forms.keys()
+    if not_found_fields:
+        message = "Переданы не все поля. Отсутствуют: {}".format(', '.join(not_found_fields))
+        return HTTPError(400, message)
     try:
         year = int(request.forms.get("year"))
         if not 1870 <= year <= 3000:
